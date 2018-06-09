@@ -25,12 +25,17 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class=""><a href="#">My Legues</a></li>
-      <!-- here goes menu items -->
+        <% if session[:current_user_id] != nil %>
+          <li class=""><a href="#">My Legues</a></li>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <% if session[:current_user] != nil %>
-        <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span> <%= session[:current_user] %></a></li>
+        <% if session[:current_user_id] != nil %>
+        <li>
+          <%= link_to user_path(session[:current_user_id]) do %>
+            <span class="glyphicon glyphicon-user"></span> <%= session[:current_user_name] %>
+          <% end %>
+        </li>
         <li><a href="/logout"><span class="glyphicon glyphicon-remove"></span> Log Out</a></li>
         <% else %>
         <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
@@ -58,5 +63,7 @@
 <footer class="container-fluid text-center navbar-fixed-bottom">
   <p>Copyright © 2018 Paweł Mstowski</p>
 </footer>
+<script>
+</script>
   </body>
 </html>
