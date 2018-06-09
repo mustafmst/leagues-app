@@ -5,10 +5,27 @@ class UsersController < ApplicationController
   def login
   end
 
+  def get_login_form
+  end
+
+  def logout
+    session[:current_user] = nil
+    redirect_to '/'
+  end
+
   def create
     @user = User.new(register_params)
-    @user.save
 
+    unless @user.valid?
+      render json: {
+        status: 422,
+        message: "Validation error", 
+        errors: @user.errors    
+      }.to_json
+      return
+    end
+    session[:current_user] = @user.login
+    @user.save
     redirect_to @user
   end
 

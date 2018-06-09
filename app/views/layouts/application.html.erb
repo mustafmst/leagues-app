@@ -29,8 +29,13 @@
       <!-- here goes menu items -->
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <% if session[:current_user] != nil %>
+        <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span> <%= session[:current_user] %></a></li>
+        <li><a href="/logout"><span class="glyphicon glyphicon-remove"></span> Log Out</a></li>
+        <% else %>
         <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+        <% end %>
       </ul>
     </div>
   </div>
