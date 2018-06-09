@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+ .welcome {
+   margin-top: 15px;
+ }
+
  /* Remove the navbar's default margin-bottom and rounded borders */ 
  .navbar {
     margin-bottom: 0;
@@ -20,7 +24,7 @@
   }
   
   /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-  .row.content {height: 450px}
+  .row.content {height: auto}
   
   /* Set gray background color and 100% height */
   .sidenav {
