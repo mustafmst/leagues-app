@@ -25,6 +25,26 @@ class UsersController < ApplicationController
   end
 
   def create
+    req_params = register_params
+    if !password_check
+      flash[:error] = "Passwords aren't the same. "
+    end
+    if req_params[:login] == ""
+      init_error
+      flash[:error] = flash[:error] + "Login is empty. "
+    end
+    if req_params[:password] == ""
+      init_error
+      flash[:error] = flash[:error] + "Password is empty. "
+    end
+    if req_params[:email] == ""
+      init_error
+      flash[:error] = flash[:error] + "Email is empty. "
+    end
+    if flash[:error] != nil
+      redirect_to new_user_path
+      return
+    end
     @user = User.new(register_params)
     unless @user.valid?
       flash[:error] = "Such user already exists. Try other login."
@@ -54,8 +74,19 @@ class UsersController < ApplicationController
   end
 
   private
+    def init_error
+      if flash[:error] == nil
+        flash[:error] = ""
+      end
+    end
+
     def register_params
-      params.require(:user).permit(:login, :password)
+      params.require(:user).permit(:login, :password, :email)
+    end
+
+    def password_check
+      pass = params.require(:user).permit(:confirm_password, :password)
+      return pass[:confirm_password] == pass[:password]
     end
 
     def get_login
