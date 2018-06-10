@@ -6,47 +6,48 @@
     <%= csp_meta_tag %>
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
 <nav class="navbar navbar-inverse">
-<div class="container-fluid">
-    <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-    </button>
-    <a class="navbar-brand" href="/">Leagues App</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-    <ul class="nav navbar-nav">
-        <% if session[:current_user_id] != nil %>
-        <li class=""><a href="#">My Legues</a></li>
-        <% end %>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-        <% if session[:current_user_id] != nil %>
-        <li>
-        <%= link_to user_path(session[:current_user_id]) do %>
-            <% if @user == nil %>
-            <img src="<%= User.find(session[:current_user_id]).getGravatarLink(25) %>" class="img-circle nav-user-icon" />
-            <% else %>
-            <img src="<%= @user.getGravatarLink(25) %>" class="img-circle nav-user-icon" /> 
+    <div class="container-fluid">
+        <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="/">Leagues App</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+            <% if session[:current_user_id] != nil %>
+            <li class=""><%= link_to "My Leagues", leagues_path %></li>
+            <li class=""><%= link_to "Active Users", users_path %></li>
             <% end %>
-            <%= session[:current_user_name] %>
-        <% end %>
-        </li>
-        <li><a href="/logout"><span class="glyphicon glyphicon-remove"></span> Log Out</a></li>
-        <% else %>
-        <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
-        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
-        <% end %>
-    </ul>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <% if session[:current_user_id] != nil %>
+            <li>
+            <%= link_to user_path(session[:current_user_id]) do %>
+                <% if @user == nil %>
+                <img src="<%= User.find(session[:current_user_id]).getGravatarLink(25) %>" class="img-circle nav-user-icon" />
+                <% else %>
+                <img src="<%= @user.getGravatarLink(25) %>" class="img-circle nav-user-icon" /> 
+                <% end %>
+                <%= session[:current_user_name] %>
+            <% end %>
+            </li>
+            <li><a href="/logout"><span class="glyphicon glyphicon-remove"></span> Log Out</a></li>
+            <% else %>
+            <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+            <% end %>
+        </ul>
     </div>
 </div>
 </nav>

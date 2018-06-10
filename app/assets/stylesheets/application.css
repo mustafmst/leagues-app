@@ -21,6 +21,10 @@
    padding-top: 15px;
  }
 
+ .user-profile {
+   min-height: 400px;
+ }
+
  .nav-user-icon {
   margin-bottom: -3px;
   margin-top: -4px;
