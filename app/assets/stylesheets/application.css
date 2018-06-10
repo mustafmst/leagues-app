@@ -17,6 +17,14 @@
    margin-top: 15px;
  }
 
+ .content {
+   padding-top: 15px;
+ }
+
+ .nav-user-icon {
+  margin-bottom: -3px;
+  margin-top: -4px;
+ }
  /* Remove the navbar's default margin-bottom and rounded borders */ 
  .navbar {
     margin-bottom: 0;
