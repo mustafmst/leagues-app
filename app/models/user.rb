@@ -7,4 +7,12 @@ class User < ApplicationRecord
         emailHash = Digest::MD5.hexdigest(self[:email])
         return "https://www.gravatar.com/avatar/#{emailHash}?s=#{size}"
     end
+
+    def securePassword
+        self[:password] = Digest::MD5.hexdigest(self[:password])
+    end
+
+    def checkPassword(providedPassword)
+        return self[:password] == Digest::MD5.hexdigest(providedPassword)
+    end
 end

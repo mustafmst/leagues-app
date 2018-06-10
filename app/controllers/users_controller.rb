@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
     def login
         @user = User.find_by login: get_login
-        if @user == nil || @user[:password] != get_password
+        if @user == nil || !@user.checkPassword(get_password)
         flash[:error] = "Invalid login or password."
         redirect_to login_path
         return
@@ -52,6 +52,7 @@ class UsersController < ApplicationController
         redirect_to new_user_path
         return
         end
+        @user.securePassword
         @user.save
         session[:current_user_id] = @user[:id]
         session[:current_user_name] = @user[:login]
