@@ -27,7 +27,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
             <% if session[:current_user_id] != nil %>
-            <li class=""><%= link_to "My Leagues", leagues_path %></li>
+            <!-- <li class=""><%= link_to "My Leagues", leagues_path %></li> -->
             <li class=""><%= link_to "Active Users", users_path %></li>
             <% end %>
         </ul>
@@ -35,11 +35,7 @@
             <% if session[:current_user_id] != nil %>
             <li>
             <%= link_to user_path(session[:current_user_id]) do %>
-                <% if @user == nil %>
                 <img src="<%= User.find(session[:current_user_id]).getGravatarLink(25) %>" class="img-circle nav-user-icon" />
-                <% else %>
-                <img src="<%= @user.getGravatarLink(25) %>" class="img-circle nav-user-icon" /> 
-                <% end %>
                 <%= session[:current_user_name] %>
             <% end %>
             </li>
