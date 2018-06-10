@@ -9,15 +9,15 @@
             <div class="col-md-8">
                 <h1><%= @user.login %></h1>
                 <h2><%= @user.email %></h2>
+                <% if @user[:id] == session[:current_user_id] %>
+                <div class="row user-settings">
+                    <div class="btn btn-primary">Edit User Data</div>
+                    <div class="btn btn-primary">Change Password</div>
+                    <div class="btn btn-danger">Delete</div>
+                </div>
+                <% end %>
             </div>
         </div>
-        <% if @user[:id] == session[:current_user_id] %>
-        <div class="row">
-            <div class="btn btn-primary col-md-2">Change Password</div>
-            <div class="col-md-8"></div>
-            <div class="btn btn-primary col-md-2">Edit User Data</div>
-        </div>
-        <% end %>
     </div>
     <div class="col-md-2"></div>
 </div>

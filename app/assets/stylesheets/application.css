@@ -24,6 +24,11 @@
  .user-profile {
    min-height: 400px;
  }
+ 
+ .user-settings {
+   padding-top: 50px;
+   margin-left: 0px;
+ }
 
  .nav-user-icon {
   margin-bottom: -3px;

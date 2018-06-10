@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200mm"
+   height="200mm"
+   viewBox="0 0 708.66142 708.66141"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="logo.svg"
+   inkscape:export-filename="/home/pawel/projects/ruby/leagues-app/app/assets/images/32.png"
+   inkscape:export-xdpi="4.0639997"
+   inkscape:export-ydpi="4.0639997">
+  <defs
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5588">
+      <stop
+         style="stop-color:#000000;stop-opacity:1"
+         offset="0"
+         id="stop5590" />
+      <stop
+         style="stop-color:#0044aa;stop-opacity:1"
+         offset="1"
+         id="stop5592" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5588"
+       id="radialGradient5594"
+       cx="-17.857126"
+       cy="1005.7855"
+       fx="-17.857126"
+       fy="1005.7855"
+       r="455"
+       gradientTransform="matrix(10.885588,3.5682775,-0.71034296,2.1637424,996.42939,-1078.6144)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="127.96749"
+     inkscape:cy="357.30667"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1025"
+     inkscape:window-x="0"
+     inkscape:window-y="31"
+     inkscape:window-maximized="1"
+     inkscape:snap-page="true" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-343.70079)">
+    <rect
+       style="fill:url(#radialGradient5594);fill-opacity:1;stroke:none;stroke-width:9.10000038;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect3344"
+       width="708.66144"
+       height="708.66144"
+       x="0"
+       y="343.70081"
+       ry="91.428574" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:743.972229px;line-height:125%;font-family:sans-serif;letter-spacing:-74.3972168px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="94.657379"
+       y="1002.5743"
+       id="text3336"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0655105,0.93851726)"><tspan
+         sodipodi:role="line"
+         id="tspan3338"
+         x="94.657379"
+         y="1002.5743">L</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:522.25067139px;line-height:125%;font-family:sans-serif;letter-spacing:-52.22507477px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="231.96919"
+       y="917.14587"
+       id="text3340"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0655105,0.93851726)"><tspan
+         sodipodi:role="line"
+         id="tspan3342"
+         x="231.96919"
+         y="917.14587">a</tspan></text>
+  </g>
+</svg>
