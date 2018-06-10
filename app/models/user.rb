@@ -12,6 +12,10 @@ class User < ApplicationRecord
         self[:password] = Digest::MD5.hexdigest(self[:password])
     end
 
+    def update_password(new_password)
+        self.update :password => Digest::MD5.hexdigest(new_password)
+    end
+
     def checkPassword(providedPassword)
         return self[:password] == Digest::MD5.hexdigest(providedPassword)
     end

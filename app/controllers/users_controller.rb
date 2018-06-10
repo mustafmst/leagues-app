@@ -6,9 +6,9 @@ class UsersController < ApplicationController
     def login
         @user = User.find_by login: get_login
         if @user == nil || !@user.checkPassword(get_password)
-        flash[:error] = "Invalid login or password."
-        redirect_to login_path
-        return
+            flash[:error] = "Invalid login or password."
+            redirect_to login_path
+            return
         end
         session[:current_user_id] = @user[:id]
         session[:current_user_name] = @user[:login]
@@ -29,6 +29,9 @@ class UsersController < ApplicationController
     end
 
     def edit
+    end
+
+    def edit_password
     end
 
     def create
@@ -70,6 +73,29 @@ class UsersController < ApplicationController
     end
 
     def update
+        @user = User.find(params[:id])
+        if @user.update :email => params.require(:email)
+            redirect_to @user
+            return
+        end
+        redirect_to edit_user_path
+    end
+
+    def update_password
+        @user = User.find(params[:id])
+        data = params.require(:data)
+        if !@user.checkPassword(data[:current_password])
+            flash[:error] = "Wrong password."
+            redirect_to edit_password_path
+            return
+        end
+        if data[:password] != data[:confirm_password]
+            flash[:error] = "New passwords doesn't match."
+            redirect_to edit_password_path
+            return
+        end
+        @user.update_password(data[:password])
+        redirect_to @user
     end
 
     def destroy
