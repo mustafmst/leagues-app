@@ -70,6 +70,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        @leagues = League.where :user => @user
     end
 
     def update
