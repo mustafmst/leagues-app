@@ -28,6 +28,7 @@
         <ul class="nav navbar-nav">
             <% if session[:current_user_id] != nil %>
             <!-- <li class=""><%= link_to "My Leagues", leagues_path %></li> -->
+            <li class=""><%= link_to "All Leagues", leagues_path %></li>
             <li class=""><%= link_to "Active Users", users_path %></li>
             <% end %>
         </ul>
