@@ -28,6 +28,26 @@ class LeaguesController < ApplicationController
         @league = League.find(params[:id])
     end
 
+    def add_contestant
+        @league = League.find(params[:id])
+        if @league.is_full 
+            redirect_to leagues_path
+            return
+        end
+        @user = User.find(params[:user_id])
+        if @league == nil || @user == nil || @league.is_user_sign_in(@user[:id])
+            redirect_to leagues_path
+            return
+        end
+        @contestant = Contestant.create({
+            :league => @league,
+            :user => @user,
+            :has_won => false,
+            :points => 0
+        })
+        redirect_to leagues_path :id => @league
+    end
+
     private
         def league_params
             form_params = params.require(:league)

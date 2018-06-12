@@ -1,6 +1,5 @@
 class User < ApplicationRecord
     validates :login, uniqueness: true
-    has_many :leagues
 
     require 'digest/md5'
     

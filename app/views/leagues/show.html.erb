@@ -1,1 +1,4 @@
 <%= @league.as_json %>
+<% @league.contestants.each do |c| %>
+    <%= c.as_json %>
+<% end %>

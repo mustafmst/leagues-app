@@ -15,6 +15,13 @@
             <td>
                 <div class="btn-group">
                   <%= link_to "Show", show_league_path(l), :class => "btn btn-success" %>
+                  <% if session[:current_user_id] != l.user.id &&
+                    !l.is_user_sign_in(session[:current_user_id]) && 
+                    !l.is_full %>
+                    <%= link_to "Participate", add_contestant_path(l, session[:current_user_id]), :class => "btn btn-success" %>
+                  <% else %>
+                    <a href="#" class="btn btn-success" disabled>Participate</a>
+                  <% end %>
                 </div>
             </td>
         </tr>
