@@ -4,7 +4,9 @@
         <div class="row user-profile">
             <div class="col-md-4 text-center">
                 <img src="<%= @user.getGravatarLink(170) %>" class="img-circle" />
-                <br/>If you want to change your picture go to <a target="_blank" href="https://www.gravatar.com">Gravatar</a> and create gravatar. 
+                <% if @user[:id] == session[:current_user_id] %>
+                    <br/>If you want to change your picture go to <a target="_blank" href="https://www.gravatar.com">Gravatar</a> and create gravatar. 
+                <% end %>
             </div>
             <div class="col-md-8">
                 <h1><%= @user.login %></h1>
