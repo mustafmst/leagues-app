@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_12_175208) do
+ActiveRecord::Schema.define(version: 2018_06_13_154309) do
 
   create_table "contestants", force: :cascade do |t|
     t.integer "league_id"
@@ -29,6 +29,9 @@ ActiveRecord::Schema.define(version: 2018_06_12_175208) do
     t.integer "max_contestants"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_closed"
+    t.boolean "is_finished"
+    t.integer "games_left"
     t.index ["user_id"], name: "index_leagues_on_user_id"
   end
 
