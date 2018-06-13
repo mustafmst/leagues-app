@@ -1,4 +1,73 @@
-<%= @league.as_json %>
+<!-- <%= @league.as_json %>
 <% @league.contestants.each do |c| %>
     <%= c.as_json %>
+<% end %> -->
+<div class="row">
+    <h1><%= @league.name %></h1>
+    <div class="btn-group">
+        <% if @league.user.id == session[:current_user_id] %>
+            <% if !@league.is_closed %>
+                <%= link_to "Close Registrations", close_league_path(@league), :class => "btn btn-danger" %>
+            <% else %>
+                <%= link_to "Open Registrations", open_league_path(@league), :class => "btn btn-success" %>
+            <% end %>
+            <%= link_to "Delete League", destroy_league_path(@league), :class => "btn btn-danger",
+                    :method => :delete, data: {:confirm => "Are You sure?", :title => "Delete #{@league.name}"} %>
+        <% else %>
+            <% if @league.can_user_register(session[:current_user_id]) %>
+                <%= link_to "Participate", add_contestant_path(@league, session[:current_user_id]), :class => "btn btn-success" %>
+            <% else %>
+                <a href="#" class="btn btn-success" disabled>Participate</a>
+            <% end %>
+        <% end %>
+    </div>
+</div>
+<div class="row league-info-header">
+    <button class="btn btn-info col-sm-12" type="button" 
+            data-toggle="collapse" data-target="#participants-collapse" 
+            aria-expanded="true" aria-controls="participants-collapse">
+        <h5>Participants</h5>
+    </button> 
+</div>
+<div class="row collapse" id="participants-collapse">
+<% if @league.contestants.count > 0 %>
+    <table class="table table-dark table-striped">
+        <thead>
+        <tr>
+            <th>Nickname</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            <% @league.contestants.each do |c| %>
+            <tr>
+                <td><%= c.user.login %></td>
+                <td><%= c.user.email %></td>
+                <td class="action-buttons">
+                    <div class="btn-group">
+                        <%= link_to "Show Profile", c.user, :class => "btn btn-success" %>
+                    </div>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% else %>
+    No one has registered for this league for now.
 <% end %>
+</div>
+<div class="row league-info-header">
+    <button class="btn btn-info col-sm-12" type="button" 
+            data-toggle="collapse" data-target="#games-collapse" 
+            aria-expanded="true" aria-controls="games-collapse">
+        <h5>Games</h5>
+    </button> 
+</div>
+<div class="row collapse" id="games-collapse">
+    <% if @league.user.id == session[:current_user_id] %>
+        Close registration to generate games for this league.
+    <% else  %>
+        There are no games generated for this league.
+    <% end %>
+</div>

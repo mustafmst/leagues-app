@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = User.create([
-    {login: 'admin', password: 'admin', email: "test@email.com"},
+    {login: 'admin', password: 'admin', email: "pawel.mstowski@gmail.com"},
     {login: 'user1', password: 'user1', email: "test@email.com"},
     {login: 'user2', password: 'user2', email: "test@email.com"},
     {login: 'user3', password: 'user3', email: "test@email.com"},
@@ -16,15 +16,23 @@ users = User.create([
     {login: 'user6', password: 'user6', email: "test@email.com"}
 ])
 
+def create_empty(name, user, max_contestants)
+    new_league = League.create({
+      :name => name,
+      :user => user,
+      :max_contestants => max_contestants,
+      :is_closed => false,
+      :is_finished => false,
+      :games_left => nil
+    })
+    return new_league
+end
+
 users.each do |user|
     user.securePassword
     user.save
-    leagues = League.create([
-        {name: "#{user[:login]} League #1", max_contestants: 10, user: user},
-        {name: "#{user[:login]} League #2", max_contestants: 10, user: user},
-        {name: "#{user[:login]} League #3", max_contestants: 10, user: user}
-    ])
-    leagues.each do |l|
-        l.save
-    end
+    create_empty("#{user[:login]} League #1", user, 10).save
+    create_empty("#{user[:login]} League #2", user, 10).save
+    create_empty("#{user[:login]} League #3", user, 10).save
 end
+

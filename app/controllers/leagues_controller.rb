@@ -24,6 +24,16 @@ class LeaguesController < ApplicationController
         redirect_to leagues_path
     end
 
+    def destroy
+        @league = League.find(params[:id])
+        if @league.user.id != session[:current_user_id]
+            redirect_to show_league_path(@league)
+            return
+        end
+        @league.destroy
+        redirect_to leagues_path
+    end
+
     def show
         @league = League.find(params[:id])
     end
@@ -45,8 +55,24 @@ class LeaguesController < ApplicationController
             :has_won => false,
             :points => 0
         })
-        redirect_to leagues_path :id => @league
+        redirect_to show_league_path(@league)
     end
+
+    def close
+        @league = League.find(params[:id])
+        @league.is_closed = true
+        @league.save
+        redirect_to show_league_path(@league)
+    end
+
+    def open
+        @league = League.find(params[:id])
+        @league.is_closed = false
+        @league.save
+        redirect_to show_league_path(@league)
+    end
+
+    
 
     private
         def league_params
