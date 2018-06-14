@@ -104,7 +104,7 @@ class UsersController < ApplicationController
             redirect_to root_path
             return
         end
-        User.find(session[:current_user_id]).destroy
+        User.find(session[:current_user_id]).destroy_all
         redirect_to logout_path
     end
 

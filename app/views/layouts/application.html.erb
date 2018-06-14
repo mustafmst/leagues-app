@@ -30,7 +30,11 @@
             <!-- <li class=""><%= link_to "My Leagues", leagues_path %></li> -->
             <li class=""><%= link_to "All Leagues", leagues_path %></li>
             <li class=""><%= link_to "Active Users", users_path %></li>
-            <li class=""><%= link_to  "Create League", new_league_path %></li>
+            <li class="">
+                <%= link_to new_league_path do %>
+                    <span class="glyphicon glyphicon-plus"></span> Add League
+                <% end %>
+            </li>
             <% end %>
         </ul>
         <ul class="nav navbar-nav navbar-right">

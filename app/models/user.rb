@@ -1,5 +1,7 @@
 class User < ApplicationRecord
     validates :login, uniqueness: true
+    has_many :contestants, :class_name => 'Contestant'
+    has_many :leagues, :class_name => 'League'
 
     require 'digest/md5'
     
@@ -19,4 +21,15 @@ class User < ApplicationRecord
     def checkPassword(providedPassword)
         return self[:password] == Digest::MD5.hexdigest(providedPassword)
     end
+
+    def destroy_all
+        self.contestants.each do |c|
+            c.destroy
+        end
+        self.leagues.each do |l|
+            l.destroy
+        end
+        self.destroy
+    end
+
 end
