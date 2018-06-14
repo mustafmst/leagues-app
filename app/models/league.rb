@@ -1,6 +1,7 @@
 class League < ApplicationRecord
   belongs_to :user, :class_name => 'User'
   has_many :contestants, :class_name => 'Contestant'
+  has_many :games, :class_name => 'Game'
 
   def is_user_sign_in(user_id)
     self.contestants.each do |c|

@@ -71,6 +71,7 @@ class LeaguesController < ApplicationController
     def open
         @league = League.find(params[:id])
         @league.is_closed = false
+        destroy_all_games(@league)
         @league.save
         redirect_to show_league_path(@league)
     end
