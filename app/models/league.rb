@@ -3,6 +3,16 @@ class League < ApplicationRecord
   has_many :contestants, :class_name => 'Contestant'
   has_many :games, :class_name => 'Game'
 
+  def destroy_all
+    self.contestants.each do |c|
+      c.destroy
+    end
+    self.games.each do |g|
+      g.destroy
+    end
+    self.destroy
+  end
+
   def is_user_sign_in(user_id)
     self.contestants.each do |c|
         if c.user[:id] == user_id

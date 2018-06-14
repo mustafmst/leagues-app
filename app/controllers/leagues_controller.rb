@@ -32,7 +32,7 @@ class LeaguesController < ApplicationController
             redirect_to show_league_path(@league)
             return
         end
-        @league.destroy
+        @league.destroy_all
         redirect_to leagues_path
     end
 

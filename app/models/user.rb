@@ -27,7 +27,7 @@ class User < ApplicationRecord
             c.destroy
         end
         self.leagues.each do |l|
-            l.destroy
+            l.destroy_all
         end
         self.destroy
     end
