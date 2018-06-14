@@ -39,7 +39,7 @@
         <% @leagues.find_each do |l| %>
         <tr>
             <td><%= l.name %></td>
-            <td>
+            <td class="action-buttons">
                 <div class="btn-group">
                   <%= link_to "Show", show_league_path(l), :class => "btn btn-success" %>
                 </div>
