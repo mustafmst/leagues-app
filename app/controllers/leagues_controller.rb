@@ -1,4 +1,6 @@
 class LeaguesController < ApplicationController
+    include LeaguesHelper
+
     def index
         @leagues = League.all
     end
@@ -62,17 +64,17 @@ class LeaguesController < ApplicationController
         @league = League.find(params[:id])
         @league.is_closed = true
         @league.save
+        create_games(@league)
         redirect_to show_league_path(@league)
     end
 
     def open
         @league = League.find(params[:id])
         @league.is_closed = false
+        destroy_all_games(@league)
         @league.save
         redirect_to show_league_path(@league)
     end
-
-    
 
     private
         def league_params

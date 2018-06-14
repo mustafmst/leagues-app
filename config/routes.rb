@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'games/save'
     # Users routes
     resources :users
     get 'login', :to => 'users#get_login_form'
@@ -15,6 +16,9 @@ Rails.application.routes.draw do
     get 'leagues/add_contestant/:id/:user_id', :to => 'leagues#add_contestant', :as => 'add_contestant'
     get 'leagues/close/:id', :to => 'leagues#close', :as => 'close_league'
     get 'leagues/open/:id', :to => 'leagues#open', :as => 'open_league'
+    # Games reoutes
+    get 'games/:id', :to => 'games#save', :as => 'save_game_score'
+    put 'games/:id', :to => 'games#update', :as => 'update_game'
     # Other routes
     root "welcome#index"
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

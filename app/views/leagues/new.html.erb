@@ -12,7 +12,7 @@
             </div>
             <div class="form-group">
                 <%= form.label :max_contestants, "Maximum number of Contestants: ", class: "control-label" %> 
-                <%= form.number_field :max_contestants, in: 1..30, class: "form-control" %>
+                <%= form.number_field :max_contestants, in: 2..30, class: "form-control" %>
             </div>
             <%= form.submit 'Create League', class: "btn btn-primary" %>
         <% end %>

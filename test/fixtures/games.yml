@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player_1: one
+  player_1_type: Player 1
+  player_2: one
+  player_2_type: Player 2
+  score_1: 1
+  score_2: 1
+  is_finished: false
+
+two:
+  player_1: two
+  player_1_type: Player 1
+  player_2: two
+  player_2_type: Player 2
+  score_1: 1
+  score_2: 1
+  is_finished: false

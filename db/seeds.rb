@@ -36,3 +36,16 @@ users.each do |user|
     create_empty("#{user[:login]} League #3", user, 10).save
 end
 
+test_league = create_empty("Test League #1", users[0], 10)
+test_league.save
+
+(1..4).to_a.each do |i|
+    c = Contestant.create({
+        :league => test_league,
+        :user => users[i],
+        :has_won => false,
+        :points => 0
+    })
+    c.save
+end
+
