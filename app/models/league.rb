@@ -44,4 +44,24 @@ class League < ApplicationRecord
     })
     return new_league
   end
+
+  def decrement_games_left
+    self.games_left -= 1
+    if self.games_left < 1
+      self.is_finished = true
+      get_winner
+    end
+    self.save
+  end
+
+  def get_winner
+    winner = self.contestants[0]
+    self.contestants.each do |c|
+      if c.points > winner.points
+        winner = c
+      end
+    end
+    winner.has_won = true
+    winner.save
+  end
 end

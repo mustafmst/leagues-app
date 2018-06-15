@@ -4,6 +4,7 @@ module GamesHelper
         game.score_2 = score2
         game.is_finished = true
         game.save
+        game.league.decrement_games_left
     end
 
     def add_points(game)
